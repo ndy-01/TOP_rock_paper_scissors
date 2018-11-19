@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let human = prompt ("Enter your choice: rock, paper or scissors:");
+        let computer = computerPlay();
+
+        human = human.toUpperCase();
+
+        // alert ("You: " + human + " Computer: " + computer);
+
+        switch (findWinner(human,computer)) {
+            case 0:
+                alert ("You: " + human + " Computer: " + computer + "\nIt's a draw, you both lose");
+                break;
+            case 1:
+                alert ("You: " + human + " Computer: " + computer + "\nYou win, computer eats a plate of dicks");
+                break;
+            case 2:
+                alert ("You: " + human + " Computer: " + computer + "\nComputer wins, how do you like your plate of dicks?");
+                break;
+            default:
+                alert ("Something is badly fucked");
+        }
+
+        function computerPlay() {
+            let computerChoice;
+            let randomNumber = Math.random();
+            
+            if (randomNumber < 0.33){
+                return "ROCK";
+            } else if (randomNumber >= 0.33 && randomNumber < 0.66) {
+                return "PAPER";
+            } else {
+                return "SCISSORS";
+            }
+
+            return computerChoice;
+        }
+
+        function findWinner (h,c) {
+            const P = "PAPER";
+            const S = "SCISSORS";
+            const R = "ROCK";
+            
+            // First check for a draw
+            if ((h == P && c == P) || (h == S && c == S) || (h == R && c == R)) {
+                return 0;
+            } else if ((h == R && c == S) || (h == S && c == P) || (h == P && c == R)) {
+                // Human wins
+                return 1;
+            } else {
+                // Computer wins
+                return 2;
+            }
+        }
+        
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
