@@ -2,25 +2,45 @@
 <html>
 <head>
     <script>
-        let human = prompt ("Enter your choice: rock, paper or scissors:");
-        let computer = computerPlay();
+        let human; // = prompt ("Enter your choice: rock, paper or scissors:");
+        let computer; // = computerPlay();
+        let computerScore = 0;
+        let humanScore = 0;
+        let i;
 
-        human = human.toUpperCase();
+        // human = human.toUpperCase();
 
         // alert ("You: " + human + " Computer: " + computer);
 
-        switch (findWinner(human,computer)) {
-            case 0:
-                alert ("You: " + human + " Computer: " + computer + "\nIt's a draw, you both lose");
-                break;
-            case 1:
-                alert ("You: " + human + " Computer: " + computer + "\nYou win, computer eats a plate of dicks");
-                break;
-            case 2:
-                alert ("You: " + human + " Computer: " + computer + "\nComputer wins, how do you like your plate of dicks?");
-                break;
-            default:
-                alert ("Something is badly fucked");
+        for (i=0; i < 5; i++){
+            human = prompt ("Game " + i + "\nEnter your choice: rock, paper or scissors:");
+            human = human.toUpperCase();
+            computer = computerPlay();
+
+            switch (findWinner(human,computer)) {
+                case 0:
+                    alert ("Game " + i + "\nYou: " + human + " Computer: " + computer + "\nIt's a draw, you both lose");
+                    break;
+                case 1:
+                    alert ("You: " + human + " Computer: " + computer + "\nYou win, computer eats a plate of dicks");
+                    humanScore++;
+                    break;
+                case 2:
+                    alert ("You: " + human + " Computer: " + computer + "\nComputer wins, how do you like your plate of dicks?");
+                    computerScore++;
+                    break;
+                default:
+                    alert ("Something is badly fucked");
+        }
+        alert ("Score, you:" + humanScore + "\nComputer: " + computerScore);
+        }
+
+        if (humanScore > computerScore){
+            alert ("You win the tournament!");
+        } else if (computerScore > humanScore) {
+            alert ("Computer wins the tournament!")
+        } else {
+            alert ("It was a draw!");
         }
 
         function computerPlay() {
@@ -55,7 +75,7 @@
             }
         }
         
-
+        
 
     </script>
 
